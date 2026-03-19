@@ -65,7 +65,7 @@ export default function MapView({ stations, selectedStation, onSelectStation }: 
       stations.forEach(station => addMarker(L, map, station, false));
     }
 
-    function addMarker(L: typeof import('leaflet').default, map: import('leaflet').Map, station: Station, selected: boolean) {
+    function addMarker(L: any, map: import('leaflet').Map, station: Station, selected: boolean) {
       const status = getOverallStatus(station);
       const color = statusColors[status];
       const svgString = createMarkerSvg(color, selected);
