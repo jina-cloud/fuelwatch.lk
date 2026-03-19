@@ -1,14 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
-
-// Define the path to the JSON file
-const dataFilePath = path.join(process.cwd(), 'data', 'stations.json');
-
-async function getStationsData() {
-  const fileContents = await fs.readFile(dataFilePath, 'utf8');
-  return JSON.parse(fileContents);
-}
+import dbConnect from '@/lib/mongodb';
+import Station from '@/models/Station';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -19,35 +11,31 @@ export async function GET(request: NextRequest) {
   const status = searchParams.get('status');
 
   try {
-    let stations = await getStationsData();
+    await dbConnect();
 
-    if (district && district !== 'all') {
-      stations = stations.filter((s: any) => s.district?.toLowerCase() === district.toLowerCase());
+    const query: any = {};
+    if (district && district !== 'all') query.district = new RegExp(`^${district}$`, 'i');
+    if (city && city !== 'all') query.city = new RegExp(`^${city}$`, 'i');
+    if (brand && brand !== 'all') query.brand = new RegExp(`^${brand}$`, 'i');
+    
+    if (fuel && fuel !== 'all' && status && status !== 'all') {
+      query.fuelTypes = { $elemMatch: { type: new RegExp(`^${fuel}$`, 'i'), status: status } };
+    } else if (fuel && fuel !== 'all') {
+      query.fuelTypes = { $elemMatch: { type: new RegExp(`^${fuel}$`, 'i') } };
+    } else if (status && status !== 'all') {
+      query.fuelTypes = { $elemMatch: { status: status } };
     }
-    if (city && city !== 'all') {
-      stations = stations.filter((s: any) => s.city.toLowerCase() === city.toLowerCase());
-    }
-    if (fuel && fuel !== 'all') {
-      stations = stations.filter((s: any) =>
-        s.fuelTypes.some((f: any) => f.type.toLowerCase() === fuel.toLowerCase())
-      );
-    }
-    if (brand && brand !== 'all') {
-      stations = stations.filter((s: any) => s.brand.toLowerCase() === brand.toLowerCase());
-    }
-    if (status && status !== 'all') {
-      stations = stations.filter((s: any) =>
-        s.fuelTypes.some((f: any) => f.status === status)
-      );
-    }
+
+    const stationsDocument = await Station.find(query).sort('-lastUpdated').lean();
 
     return NextResponse.json({
-      stations,
-      total: stations.length,
+      stations: stationsDocument,
+      total: stationsDocument.length,
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to load stations data' }, { status: 500 });
+    console.error('GET /api/stations error:', error);
+    return NextResponse.json({ error: 'Failed to access database. Check MONGODB_URI.' }, { status: 500 });
   }
 }
 
@@ -57,41 +45,35 @@ export async function POST(request: NextRequest) {
     const { stationId, fuelType, availability } = body;
 
     if (!stationId || !fuelType || !availability) {
-      return NextResponse.json(
-        { error: 'stationId, fuelType, and availability are required' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const stations = await getStationsData();
-    const stationIndex = stations.findIndex((s: any) => s.id === stationId);
+    await dbConnect();
 
-    if (stationIndex === -1) {
-      return NextResponse.json({ error: 'Station not found' }, { status: 404 });
+    const station = await Station.findOneAndUpdate(
+      { _id: stationId, 'fuelTypes.type': fuelType },
+      { 
+        $set: { 
+          'fuelTypes.$.status': availability,
+          lastUpdated: new Date()
+        },
+        $inc: { reportCount: 1 }
+      },
+      { new: true }
+    );
+
+    if (!station) {
+      return NextResponse.json({ error: 'Station or Fuel type not found' }, { status: 404 });
     }
-
-    const station = stations[stationIndex];
-    const fuelIndex = station.fuelTypes.findIndex((f: any) => f.type === fuelType);
-
-    if (fuelIndex === -1) {
-      return NextResponse.json({ error: 'Fuel type not found for this station' }, { status: 404 });
-    }
-
-    // Update fuel status
-    station.fuelTypes[fuelIndex].status = availability;
-    station.lastUpdated = new Date().toISOString();
-    station.reportCount += 1;
-
-    // Write back to file
-    await fs.writeFile(dataFilePath, JSON.stringify(stations, null, 2), 'utf8');
 
     return NextResponse.json({
       success: true,
-      message: 'Report submitted successfully. Station updated.',
+      message: 'Report submitted successfully.',
       station,
       submittedAt: new Date().toISOString(),
     });
   } catch (error) {
+    console.error('POST /api/stations error:', error);
     return NextResponse.json({ error: 'Failed to process report' }, { status: 500 });
   }
 }
