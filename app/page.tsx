@@ -37,7 +37,6 @@ export default function DashboardPage() {
   const [reportTarget, setReportTarget] = useState<Station | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [showMobileMap, setShowMobileMap] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
 
   // Stats computed from all stations
@@ -89,7 +88,6 @@ export default function DashboardPage() {
           fetchStations();
           if (selectedStation?.id === station.id) {
             setSelectedStation(null);
-            setShowMobileMap(false);
           }
         } else {
           alert('Failed to delete station.');
@@ -106,16 +104,10 @@ export default function DashboardPage() {
       <FuelTicker />
 
       {/* Main layout — starts below navbar (64px) + ticker (36px) = 100px */}
-      <div className="fixed inset-0 top-[100px] flex flex-col md:flex-row">
+      <div className="md:fixed md:inset-0 md:top-[100px] flex flex-col md:flex-row pt-[100px] md:pt-0 min-h-screen md:min-h-0 bg-gray-950">
 
-        {/* ── LEFT PANEL: Sidebar ── */}
-        <aside
-          className={`
-            flex-shrink-0 w-full md:w-[360px] lg:w-[400px]
-            flex flex-col bg-gray-950 border-r border-gray-800/60
-            ${showMobileMap ? 'hidden md:flex' : 'flex'}
-          `}
-        >
+        {/* ── LEFT PANEL: Sidebar (Mobile Bottom, Desktop Left) ── */}
+        <aside className="flex-shrink-0 w-full md:w-[360px] lg:w-[400px] flex flex-col bg-gray-950 md:border-r border-gray-800/60 order-2 md:order-1">
           {/* Stats bar */}
           <div className="flex-shrink-0 grid grid-cols-4 gap-px bg-gray-800/40 border-b border-gray-800/60">
             {[
@@ -146,7 +138,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Station List */}
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1 md:overflow-y-auto">
             {loading ? (
               <div className="flex flex-col gap-3 p-3">
                 {[...Array(5)].map((_, i) => (
@@ -173,7 +165,11 @@ export default function DashboardPage() {
                     key={station.id}
                     station={station}
                     isSelected={selectedStation?.id === station.id}
-                    onSelect={s => { setSelectedStation(s); setShowMobileMap(true); }}
+                    onSelect={s => { 
+                      setSelectedStation(s); 
+                      // Smooth scroll back to map on mobile
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                     onReport={setReportTarget}
                     onDelete={handleDelete}
                   />
@@ -182,44 +178,11 @@ export default function DashboardPage() {
             )}
           </div>
 
-          {/* Mobile: toggle map/list button */}
-          <div className="md:hidden flex-shrink-0 p-3 border-t border-gray-800/60">
-            <button
-              id="mobile-toggle-map"
-              onClick={() => setShowMobileMap(v => !v)}
-              className="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold flex items-center justify-center gap-2 transition"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-              </svg>
-              View Map
-            </button>
-          </div>
         </aside>
 
-        {/* ── RIGHT PANEL: Map ── */}
-        <main
-          className={`
-            flex-1 relative
-            ${showMobileMap ? 'flex' : 'hidden md:flex'}
-            flex-col
-          `}
-        >
-          {/* Mobile: back to list button */}
-          <div className="md:hidden absolute top-3 left-3 z-[1000]">
-            <button
-              id="mobile-back-to-list"
-              onClick={() => setShowMobileMap(false)}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl glass border border-gray-600/50 text-sm text-gray-300 font-medium shadow-lg"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Station List
-            </button>
-          </div>
-
-          <div className="w-full h-full">
+        {/* ── RIGHT PANEL: Map (Mobile Top, Desktop Right) ── */}
+        <main className="w-full h-[45vh] min-h-[350px] md:h-auto md:flex-1 relative order-1 md:order-2 flex-col flex border-b border-gray-800/60 md:border-b-0 bg-gray-900">
+          <div className="w-full h-full z-0">
             <MapView
               stations={filteredStations}
               selectedStation={selectedStation}
