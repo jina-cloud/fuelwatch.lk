@@ -1,0 +1,702 @@
+[
+  {
+    "id": "1",
+    "name": "Ceylon Petroleum Colombo Fort",
+    "brand": "CPC",
+    "city": "Colombo",
+    "lat": 6.9344,
+    "lng": 79.8428,
+    "address": "Dam Street, Colombo 11",
+    "phone": "0112-234567",
+    "lastUpdated": "2026-03-19T07:10:00Z",
+    "reportCount": 12,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "limited",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "unavailable",
+        "price": 385
+      }
+    ],
+    "district": "Colombo"
+  },
+  {
+    "id": "2",
+    "name": "Lanka IOC Pettah",
+    "brand": "Lanka IOC",
+    "city": "Colombo",
+    "lat": 6.9388,
+    "lng": 79.8513,
+    "address": "Main Street, Pettah, Colombo 11",
+    "phone": "0112-345678",
+    "lastUpdated": "2026-03-19T07:00:00Z",
+    "reportCount": 8,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "available",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "limited",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "limited",
+        "price": 385
+      }
+    ],
+    "district": "Colombo"
+  },
+  {
+    "id": "3",
+    "name": "CPC Nugegoda",
+    "brand": "CPC",
+    "city": "Colombo",
+    "lat": 6.8731,
+    "lng": 79.8878,
+    "address": "High Level Road, Nugegoda",
+    "phone": "0112-456789",
+    "lastUpdated": "2026-03-19T06:45:00Z",
+    "reportCount": 5,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "unavailable",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "unavailable",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "available",
+        "price": 385
+      }
+    ],
+    "district": "Colombo"
+  },
+  {
+    "id": "4",
+    "name": "Lanka IOC Kandy City",
+    "brand": "Lanka IOC",
+    "city": "Kandy",
+    "lat": 7.2906,
+    "lng": 80.6337,
+    "address": "Kandy Road, Kandy City",
+    "phone": "0812-234567",
+    "lastUpdated": "2026-03-19T07:20:00Z",
+    "reportCount": 15,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "available",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "limited",
+        "price": 385
+      }
+    ],
+    "district": "Kandy"
+  },
+  {
+    "id": "5",
+    "name": "CPC Kandy Peradeniya",
+    "brand": "CPC",
+    "city": "Kandy",
+    "lat": 7.2696,
+    "lng": 80.5966,
+    "address": "Peradeniya Road, Kandy",
+    "phone": "0812-345678",
+    "lastUpdated": "2026-03-19T06:30:00Z",
+    "reportCount": 3,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "limited",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "unavailable",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "limited",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "unavailable",
+        "price": 385
+      }
+    ],
+    "district": "Kandy"
+  },
+  {
+    "id": "6",
+    "name": "Lanka IOC Galle Fort",
+    "brand": "Lanka IOC",
+    "city": "Galle",
+    "lat": 6.0328,
+    "lng": 80.2168,
+    "address": "Galle Fort Road, Galle",
+    "phone": "0912-234567",
+    "lastUpdated": "2026-03-19T07:05:00Z",
+    "reportCount": 9,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "limited",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "available",
+        "price": 385
+      }
+    ],
+    "district": "Galle"
+  },
+  {
+    "id": "7",
+    "name": "CPC Jaffna Central",
+    "brand": "CPC",
+    "city": "Jaffna",
+    "lat": 9.6615,
+    "lng": 80.0255,
+    "address": "Hospital Road, Jaffna",
+    "phone": "0212-234567",
+    "lastUpdated": "2026-03-19T06:50:00Z",
+    "reportCount": 6,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "unavailable",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "unavailable",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "limited",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "unavailable",
+        "price": 385
+      }
+    ],
+    "district": "Jaffna"
+  },
+  {
+    "id": "8",
+    "name": "Sinopec Matara",
+    "brand": "Sinopec",
+    "city": "Matara",
+    "lat": 5.9549,
+    "lng": 80.555,
+    "address": "Hakmana Road, Matara",
+    "phone": "0412-234567",
+    "lastUpdated": "2026-03-19T07:15:00Z",
+    "reportCount": 7,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "available",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "available",
+        "price": 385
+      }
+    ],
+    "district": "Matara"
+  },
+  {
+    "id": "9",
+    "name": "CPC Negombo Beach Road",
+    "brand": "CPC",
+    "city": "Negombo",
+    "lat": 7.2081,
+    "lng": 79.8373,
+    "address": "Beach Road, Negombo",
+    "phone": "0312-234567",
+    "lastUpdated": "2026-03-19T07:00:00Z",
+    "reportCount": 11,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "available",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "unavailable",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "limited",
+        "price": 385
+      }
+    ],
+    "district": "Gampaha"
+  },
+  {
+    "id": "10",
+    "name": "Lanka IOC Trincomalee",
+    "brand": "Lanka IOC",
+    "city": "Trincomalee",
+    "lat": 8.5874,
+    "lng": 81.2152,
+    "address": "Inner Harbour Road, Trincomalee",
+    "phone": "0262-234567",
+    "lastUpdated": "2026-03-19T06:40:00Z",
+    "reportCount": 4,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "limited",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "unavailable",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "unavailable",
+        "price": 385
+      }
+    ],
+    "district": "Trincomalee"
+  },
+  {
+    "id": "11",
+    "name": "CPC Batticaloa",
+    "brand": "CPC",
+    "city": "Batticaloa",
+    "lat": 7.7102,
+    "lng": 81.6924,
+    "address": "Bar Road, Batticaloa",
+    "phone": "0652-234567",
+    "lastUpdated": "2026-03-19T07:05:00Z",
+    "reportCount": 2,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "limited",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "limited",
+        "price": 385
+      }
+    ],
+    "district": "Batticaloa"
+  },
+  {
+    "id": "12",
+    "name": "Sinopec Anuradhapura",
+    "brand": "Sinopec",
+    "city": "Anuradhapura",
+    "lat": 8.3114,
+    "lng": 80.4037,
+    "address": "Maithripala Road, Anuradhapura",
+    "phone": "0252-234567",
+    "lastUpdated": "2026-03-19T06:25:00Z",
+    "reportCount": 8,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "unavailable",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "unavailable",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "limited",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "unavailable",
+        "price": 385
+      }
+    ],
+    "district": "Anuradhapura"
+  },
+  {
+    "id": "13",
+    "name": "CPC Ratnapura",
+    "brand": "CPC",
+    "city": "Ratnapura",
+    "lat": 6.6828,
+    "lng": 80.3992,
+    "address": "Main Street, Ratnapura",
+    "phone": "0452-234567",
+    "lastUpdated": "2026-03-19T07:10:00Z",
+    "reportCount": 5,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "available",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "available",
+        "price": 385
+      }
+    ],
+    "district": "Ratnapura"
+  },
+  {
+    "id": "14",
+    "name": "Lanka IOC Kurunegala",
+    "brand": "Lanka IOC",
+    "city": "Kurunegala",
+    "lat": 7.4863,
+    "lng": 80.3647,
+    "address": "Colombo Road, Kurunegala",
+    "phone": "0372-234567",
+    "lastUpdated": "2026-03-19T06:55:00Z",
+    "reportCount": 10,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "limited",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "limited",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "limited",
+        "price": 385
+      }
+    ],
+    "district": "Kurunegala"
+  },
+  {
+    "id": "15",
+    "name": "CPC Hambantota",
+    "brand": "CPC",
+    "city": "Hambantota",
+    "lat": 6.1241,
+    "lng": 81.1185,
+    "address": "Port Road, Hambantota",
+    "phone": "0472-234567",
+    "lastUpdated": "2026-03-19T07:00:00Z",
+    "reportCount": 6,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "unavailable",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "available",
+        "price": 385
+      }
+    ],
+    "district": "Hambantota"
+  },
+  {
+    "id": "16",
+    "name": "Lanka IOC Colombo 3",
+    "brand": "Lanka IOC",
+    "city": "Colombo",
+    "lat": 6.8904,
+    "lng": 79.8567,
+    "address": "Galle Road, Colombo 3",
+    "phone": "0112-789012",
+    "lastUpdated": "2026-03-19T07:18:00Z",
+    "reportCount": 14,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "available",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "available",
+        "price": 385
+      }
+    ],
+    "district": "Colombo"
+  },
+  {
+    "id": "17",
+    "name": "CPC Polonnaruwa",
+    "brand": "CPC",
+    "city": "Polonnaruwa",
+    "lat": 7.9403,
+    "lng": 81.0188,
+    "address": "Batticaloa Road, Polonnaruwa",
+    "phone": "0272-234567",
+    "lastUpdated": "2026-03-19T06:35:00Z",
+    "reportCount": 3,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "limited",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "unavailable",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "limited",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "unavailable",
+        "price": 385
+      }
+    ],
+    "district": "Polonnaruwa"
+  },
+  {
+    "id": "18",
+    "name": "Sinopec Kalutara",
+    "brand": "Sinopec",
+    "city": "Kalutara",
+    "lat": 6.5835,
+    "lng": 79.9607,
+    "address": "Galle Road, Kalutara",
+    "phone": "0342-234567",
+    "lastUpdated": "2026-03-19T07:08:00Z",
+    "reportCount": 9,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "available",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "unavailable",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "limited",
+        "price": 385
+      }
+    ],
+    "district": "Kalutara"
+  },
+  {
+    "id": "19",
+    "name": "CPC Vavuniya",
+    "brand": "CPC",
+    "city": "Vavuniya",
+    "lat": 8.7514,
+    "lng": 80.4972,
+    "address": "Hospital Road, Vavuniya",
+    "phone": "0242-234567",
+    "lastUpdated": "2026-03-19T06:20:00Z",
+    "reportCount": 2,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "unavailable",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "unavailable",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "unavailable",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "unavailable",
+        "price": 385
+      }
+    ],
+    "district": "Vavuniya"
+  },
+  {
+    "id": "20",
+    "name": "Lanka IOC Badulla",
+    "brand": "Lanka IOC",
+    "city": "Badulla",
+    "lat": 6.9895,
+    "lng": 81.0557,
+    "address": "Kandy Road, Badulla",
+    "phone": "0552-234567",
+    "lastUpdated": "2026-03-19T07:02:00Z",
+    "reportCount": 7,
+    "fuelTypes": [
+      {
+        "type": "92 Octane",
+        "status": "available",
+        "price": 317
+      },
+      {
+        "type": "95 Octane",
+        "status": "limited",
+        "price": 377
+      },
+      {
+        "type": "Diesel",
+        "status": "available",
+        "price": 273
+      },
+      {
+        "type": "Super Diesel",
+        "status": "available",
+        "price": 385
+      }
+    ],
+    "district": "Badulla"
+  }
+]
