@@ -89,7 +89,7 @@ export default function SearchFilter({ stations, onFilterChange }: SearchFilterP
       </div>
 
       {/* Filter row */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <Select id="filter-district" value={district} onChange={setDistrict} options={['all', ...DISTRICTS]} placeholder="All Districts" />
         <Select id="filter-city" value={city} onChange={setCity} options={cityOptions} placeholder="All Cities" />
         <Select id="filter-brand" value={brand} onChange={setBrand} options={BRANDS} placeholder="All Brands" />

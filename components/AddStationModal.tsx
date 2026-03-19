@@ -132,7 +132,7 @@ export default function AddStationModal({ onClose, onSubmit }: AddStationModalPr
               <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Lanka IOC Mount Lavinia" className="w-full bg-gray-800/60 border border-gray-600/50 rounded-lg px-3 py-2 text-sm text-gray-100 placeholder-gray-600 focus:outline-none focus:border-indigo-500/60 transition" />
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-semibold text-gray-400 mb-1.5 uppercase tracking-wider">Brand *</label>
                 <select value={brand} onChange={e => setBrand(e.target.value)} className="w-full bg-gray-800/60 border border-gray-600/50 rounded-lg px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-indigo-500/60 transition cursor-pointer">
@@ -163,7 +163,7 @@ export default function AddStationModal({ onClose, onSubmit }: AddStationModalPr
           {/* Section: Location */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-indigo-400 border-b border-gray-700/50 pb-1">GPS Location</h3>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-semibold text-gray-400 mb-1.5 uppercase tracking-wider">Latitude *</label>
                 <input type="number" step="any" value={lat} onChange={e => setLat(e.target.value)} placeholder="e.g. 6.8398" className="w-full bg-gray-800/60 border border-gray-600/50 rounded-lg px-3 py-2 text-sm text-gray-100 placeholder-gray-600 focus:outline-none focus:border-indigo-500/60 transition" />
