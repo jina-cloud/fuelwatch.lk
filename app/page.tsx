@@ -104,10 +104,10 @@ export default function DashboardPage() {
       <FuelTicker />
 
       {/* Main layout — starts below navbar (64px) + ticker (36px) = 100px */}
-      <div className="md:fixed md:inset-0 md:top-[100px] flex flex-col md:flex-row pt-[100px] md:pt-0 min-h-screen md:min-h-0 bg-gray-950">
+      <div className="fixed inset-0 top-[100px] flex flex-col md:flex-row bg-gray-950">
 
         {/* ── LEFT PANEL: Sidebar (Mobile Bottom, Desktop Left) ── */}
-        <aside className="flex-shrink-0 w-full md:w-[360px] lg:w-[400px] flex flex-col bg-gray-950 md:border-r border-gray-800/60 order-2 md:order-1">
+        <aside className="flex-1 md:flex-none w-full md:w-[360px] lg:w-[400px] flex flex-col bg-gray-950 md:border-r border-gray-800/60 order-2 md:order-1 overflow-hidden border-t border-gray-800/60 md:border-t-0">
           {/* Stats bar */}
           <div className="flex-shrink-0 grid grid-cols-4 gap-px bg-gray-800/40 border-b border-gray-800/60">
             {[
@@ -138,7 +138,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Station List */}
-          <div className="flex-1 md:overflow-y-auto">
+          <div className="flex-1 overflow-y-auto pb-20 md:pb-0">
             {loading ? (
               <div className="flex flex-col gap-3 p-3">
                 {[...Array(5)].map((_, i) => (
@@ -181,7 +181,7 @@ export default function DashboardPage() {
         </aside>
 
         {/* ── RIGHT PANEL: Map (Mobile Top, Desktop Right) ── */}
-        <main className="w-full h-[45vh] min-h-[350px] md:h-auto md:flex-1 relative order-1 md:order-2 flex-col flex border-b border-gray-800/60 md:border-b-0 bg-gray-900">
+        <main className="w-full h-[40vh] md:h-auto md:flex-1 flex-shrink-0 relative order-1 md:order-2 flex-col flex bg-gray-900 border-b border-indigo-500/10 md:border-b-0 shadow-xl z-10">
           <div className="w-full h-full z-0">
             <MapView
               stations={filteredStations}
